@@ -62,4 +62,4 @@ De cada película/serie se contiene la siguiente información:
 
 ## 👥 Desarrolladoras
 
-- **Agustín Rojas** - [agusrnfr](https://github.com/agusrnfr)
+- **Agustina Rojas** - [agusrnfr](https://github.com/agusrnfr)
