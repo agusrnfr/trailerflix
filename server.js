@@ -9,7 +9,7 @@ const PORT = process.env.PORT;
 const TRAILERFLIX = JSON.parse(fs.readFileSync(process.env.DATA_PATH, "utf-8"));
 
 app.get("/", (req, res) => {
-	res.send("Bienvenido a Trailerflix API");
+	res.send("Bienvenido a TrailerFlix API");
 });
 
 app.get("/catalogo", (req, res) => {
@@ -66,14 +66,17 @@ app.get("/trailer/:id", (req, res) => {
 	const movie = TRAILERFLIX.find((movie) => movie.id == id);
 
 	if (!movie) {
-		// (movie == undefined) es lo mismo que esto
 		return res.status(404).json({ error: "No se encontraron resultados" });
+	}
+
+	if (!movie?.trailer) {
+		return res.status(404).json({ error: "No se encontró el trailer" });
 	}
 
 	res.json({
 		id: movie.id,
 		titulo: movie.titulo,
-		trailer: movie?.trailer,
+		trailer: movie.trailer,
 	});
 });
 
