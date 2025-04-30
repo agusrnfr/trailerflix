@@ -6,9 +6,9 @@
 
 - 📚 Listado completo del catálogo.
 - 🔍 Búsqueda por título.
-- 🎭 Filtrado por categoría.
+- 🎭 Filtrado por películas o series.
 - 👥 Búsqueda por actor/actriz en el reparto.
-- 🎞 Acceso directo al trailer por ID.
+- 🎞 Acceso al trailer a tráves del ID.
 
 ## 📖 Estructura de los Datos
 
@@ -30,7 +30,7 @@ De cada película/serie se contiene la siguiente información:
    ```bash
    git clone https://github.com/agusrnfr/trailerflix.git
    cd trailerflix
-    ```
+   ```
 2. Instalá las dependencias:
     ```bash
     npm install
