@@ -9,7 +9,7 @@ const PORT = process.env.PORT;
 const TRAILERFLIX = JSON.parse(fs.readFileSync(process.env.DATA_PATH, "utf-8"));
 
 app.get("/", (req, res) => {
-	res.send("Bienvenido a TrailerFlix API");
+	res.send("Bienvenido a Trailerflix API");
 });
 
 app.get("/catalogo", (req, res) => {
