@@ -24,7 +24,7 @@ app.get("/titulo/:title", (req, res) => {
 	);
 
 	if (movies.length === 0) {
-		return res.status(404).json({ error: "No se encontraron resultados" });
+		return res.json({ message: "No se encontraron resultados" });
 	}
 	res.json(movies);
 });
@@ -37,7 +37,7 @@ app.get("/categoria/:cat", (req, res) => {
 	);
 
 	if (movies.length === 0) {
-		return res.status(404).json({ error: "No se encontraron resultados" });
+		return res.json({ message: "No se encontraron resultados" });
 	}
 	res.json(movies);
 });
@@ -55,7 +55,7 @@ app.get("/reparto/:act", (req, res) => {
 	});
 
 	if (movies.length === 0) {
-		return res.status(404).json({ error: "No se encontraron resultados" });
+		return res.json({ message: "No se encontraron resultados" });
 	}
 	res.json(movies);
 });
@@ -66,11 +66,11 @@ app.get("/trailer/:id", (req, res) => {
 	const movie = TRAILERFLIX.find((movie) => movie.id == id);
 
 	if (!movie) {
-		return res.status(404).json({ error: "No se encontraron resultados" });
+		return res.json({ message: "No se encontraron resultados" });
 	}
 
 	if (!movie?.trailer) {
-		return res.status(404).json({ error: "No se encontró el trailer" });
+		return res.json({ message: "No se encontraron resultados" });
 	}
 
 	res.json({
@@ -78,6 +78,10 @@ app.get("/trailer/:id", (req, res) => {
 		titulo: movie.titulo,
 		trailer: movie.trailer,
 	});
+});
+
+app.use((req, res) => {
+	res.status(404).send("Ruta no encontrada");
 });
 
 app.listen(PORT, () => {
