@@ -12,16 +12,16 @@
 
 ## 📖 Estructura de los Datos
 
-De cada película/serie se contiene la siguiente información:
+De cada película o serie se contiene la siguiente información:
 - **id**: Identificador único de la película o serie.
-- **poster**: Enlace a la imagen del poster de la película/serie.
+- **poster**: Enlace a la imagen del poster de la película o serie.
 - **titulo**: Título de la película o serie.
 - **categoria**: Si se trata de una película o serie.
 - **tags**: Palabras clave asociadas a la película o serie.
 - **resumen**: Breve descripción de la película o serie.
 - **temporadas**: Número de temporadas (si es una serie).
 - **duracion**: Duración de la película o serie (si es una película).
-- **reparto**: Actores/actrices que participan en la película/serie.
+- **reparto**: Actores/actrices que participan en la película o serie.
 - **trailer**: Enlace al trailer de la película o serie (si está disponible).
 
 ## 📦 Instalación
