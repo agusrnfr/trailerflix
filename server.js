@@ -8,6 +8,21 @@ const PORT = process.env.PORT;
 
 const TRAILERFLIX = JSON.parse(fs.readFileSync(process.env.DATA_PATH, "utf-8"));
 
+const normalizeString = (str) => {
+	return String(str)
+		.toLowerCase()
+		.normalize("NFD")
+		.replace(/[\u0300-\u036f]/g, "")
+		.replace(/\s/g, "");
+};
+
+const compareStrings = (str1, str2, exactMatch = false) => {
+	if (exactMatch) {
+		return normalizeString(str1) === normalizeString(str2);
+	}
+	return normalizeString(str1).includes(normalizeString(str2));
+};
+
 app.get("/", (req, res) => {
 	res.send("Bienvenido a Trailerflix API");
 });
@@ -20,7 +35,7 @@ app.get("/titulo/:title", (req, res) => {
 	const title = req.params.title;
 
 	const movies = TRAILERFLIX.filter((movie) =>
-		movie.titulo.toLowerCase().includes(title.toLowerCase())
+		compareStrings(movie.titulo, title)
 	);
 
 	if (movies.length === 0) {
@@ -32,8 +47,8 @@ app.get("/titulo/:title", (req, res) => {
 app.get("/categoria/:cat", (req, res) => {
 	const cat = req.params.cat;
 
-	const movies = TRAILERFLIX.filter(
-		(movie) => movie.categoria.toLowerCase() === cat.toLowerCase()
+	const movies = TRAILERFLIX.filter((movie) =>
+		compareStrings(movie.categoria, cat, true)
 	);
 
 	if (movies.length === 0) {
@@ -46,7 +61,7 @@ app.get("/reparto/:act", (req, res) => {
 	const act = req.params.act;
 
 	const movies = TRAILERFLIX.filter((movie) =>
-		movie.reparto.toLowerCase().includes(act.toLowerCase())
+		compareStrings(movie.reparto, act)
 	).map((movie) => {
 		return {
 			titulo: movie.titulo,
@@ -63,7 +78,7 @@ app.get("/reparto/:act", (req, res) => {
 app.get("/trailer/:id", (req, res) => {
 	const id = req.params.id;
 
-	const movie = TRAILERFLIX.find((movie) => movie.id == id);
+	const movie = TRAILERFLIX.find((movie) => compareStrings(movie.id, id, true));
 
 	if (!movie) {
 		return res.json({ message: "No se encontraron resultados" });
