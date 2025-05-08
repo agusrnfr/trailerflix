@@ -3,10 +3,12 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const fs = require("fs");
-
+const path = require("path");
 const PORT = process.env.PORT;
 
-const TRAILERFLIX = JSON.parse(fs.readFileSync(process.env.DATA_PATH, "utf-8"));
+const TRAILERFLIX = JSON.parse(
+	fs.readFileSync(path.join(__dirname, process.env.DATA_PATH), "utf-8")
+);
 
 const normalizeString = (str) => {
 	return String(str)
