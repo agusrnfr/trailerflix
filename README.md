@@ -1,6 +1,9 @@
 # 🎬 Trailerflix API
 
-**Trailerflix** es una API REST desarrollada con Node.js y Express que permite explorar un catálogo de películas/series a través de múltiples rutas.
+![Node.js](https://img.shields.io/badge/Node.js-18.x-green?logo=node.js) ![Express](https://img.shields.io/badge/Express.js-4.x-lightgrey?logo=express) ![License](https://img.shields.io/badge/license-MIT-blue.svg) ![Status](https://img.shields.io/badge/status-active-brightgreen) ![PRs](https://img.shields.io/badge/PRs-welcome-orange)
+
+
+**Trailerflix** es una API REST desarrollada con **Node.js** y **Express** que permite explorar un catálogo de películas y series a través de múltiples rutas organizadas.
 
 ## 🚀 Características
 
@@ -28,14 +31,21 @@ De cada película o serie se contiene la siguiente información:
 
 1. Cloná el repositorio:
    ```bash
-   git clone https://github.com/agusrnfr/trailerflix.git
-   cd trailerflix
+   git clone https://github.com/Chinapaoletti/trailerflix-api
+   cd trailerflix-api
    ```
 2. Instalá las dependencias:
     ```bash
     npm install
     ```
-3. Ejecutá el servidor:
+   O podes instalar express, dotenv y nodemon por separado:
+   
+    ```bash
+   npm install express
+   npm install dotenv
+   npm install --save-dev nodemon
+    ```
+4. Ejecutá el servidor:
    * En modo desarrollo (con nodemon):
         ```bash
         npm run dev
@@ -44,7 +54,7 @@ De cada película o serie se contiene la siguiente información:
         ```bash
         npm start
         ```
-4. Accedé a la API a través de un navegador o herramienta de pruebas en la siguiente URL:
+5. Accedé a la API a través de un navegador o herramienta de pruebas en la siguiente URL:
    ```bash
    http://localhost:3008/
    ```
@@ -62,4 +72,6 @@ De cada película o serie se contiene la siguiente información:
 
 ## 👥 Desarrolladoras
 
+- **Agostina Paoletti** - [agostinapaoletti](https://github.com/Chinapaoletti) 
 - **Agustina Rojas** - [agusrnfr](https://github.com/agusrnfr)
+- **Karina Chilque** - [karinachilque]()
